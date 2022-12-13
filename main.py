@@ -1,9 +1,13 @@
 import requests
+import os
+from dotenv import load_dotenv
 from send_mail import send_mail
 
 topic = 'cricket'
 
-api_key = '248d06a550fa4bad91ee3602e006e6d3'
+load_dotenv()
+
+api_key = os.getenv('API_KEY')
 url = "https://newsapi.org/v2/everything?"\
     "q="+topic+"&sortBy=publishedAt&"\
     "apiKey="+api_key+"&language=en"
